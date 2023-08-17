@@ -5,13 +5,13 @@ function New() {
     <div>
       <form action="/logs" method="POST">
         <label htmlFor="title">Title: </label>
-        <input type="text"></input>
+        <input type="text" name="title"></input>
         <br />
         <label htmlFor="entry">Entry: </label>
-        <input type="textarea"></input>
+        <input type="textarea" name="entry"></input>
         <br />
-        <label htmlFor="shipIsBroken">ShipIsBroken: </label>
-        <input type="checkbox"></input>
+        <label htmlFor="shipIsBroken">Ship Is Broken: </label>
+        <input type="checkbox" name="shipIsBroken"></input>
         <br />
         <input type="submit"></input>
       </form>
