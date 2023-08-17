@@ -16,6 +16,6 @@ router.get('/new', logsController.new)
 router.post('/logs', logsController.create)
 
 // "show" route
-router.get('/:id', logsController.show)
+router.get('/logs/:id', logsController.show)
 
 module.exports = router

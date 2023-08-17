@@ -5,9 +5,10 @@ function Index({ logs }) {
     <div>
       <h1>Logs</h1>
       <ul>
-        {logs.map((log, index) => {
-          <li key={index}>{log.title}</li>;
-        })}
+        {logs.map((log, index) => (
+          <li key={index}>{log.title}</li>
+        ))}
+        <br />
         <a href={"/new"}>Create</a>
       </ul>
     </div>

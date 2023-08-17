@@ -1,9 +1,18 @@
-const e = require('express')
+
 const Logs = require('../models/logs')
 
 module.exports.index = async (req,res) => {
-    const logs = await Logs.find()
-    res.render('Index', {logs} )
+    try{
+        const logs = await Logs.find()
+        console.log(logs) 
+        res.render('Index', {logs} )
+       
+    }catch(error){
+        console.error(error)
+        res.status(404).send('Server Error')
+    }
+    
+       
 }
 
 module.exports.new = (req, res) => {
@@ -31,4 +40,5 @@ module.exports.create = async (req,res) => {
 module.exports.show = async (req,res) => {
     const log = await Logs.findById(req.params.id)
     res.render('Show', {log})
+    
 }
