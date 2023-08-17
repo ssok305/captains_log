@@ -1,9 +1,9 @@
 const express = require('express');
 
-// require('dotenv').config()
+require('dotenv').config()
 
-// const mongoConfig = require('./config');
-// mongoConfig() 
+const mongoConfig = require('./config');
+mongoConfig() 
 
 
 const app = express()
