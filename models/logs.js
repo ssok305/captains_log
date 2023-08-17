@@ -11,3 +11,6 @@ const logsSchema = mongoose.Schema({
         default: true
     }
 }, { timestamps:true })
+
+const Logs = mongoose.model('Logs',logsSchema);
+module.exports = Logs
