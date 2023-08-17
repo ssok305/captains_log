@@ -5,11 +5,14 @@ function Index({ logs }) {
     <div>
       <h1>Logs</h1>
       <ul>
-        {logs.map((log, index) => (
-          <form action={`/logs?_method=DELETE`} method="POST">
-            <li key={index}>{log.title}</li>
-            <button>Delete</button>
-          </form>
+        {logs.map((log) => (
+          <li key={log._id}>
+            {log.title}
+            <form action={`/logs/${log._id}`} method="POST">
+              <input type="hidden" name="_method" value="DELETE" />
+              <input type="submit" value="Delete" />
+            </form>
+          </li>
         ))}
         <br />
         <a href={"/new"}>Create</a>

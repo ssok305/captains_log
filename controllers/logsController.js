@@ -43,12 +43,18 @@ module.exports.show = async (req,res) => {
 }
 
 module.exports.delete = async(req,res) =>{
-    try{
-        await Logs.findByIdAndDelete(req.params.id)
+    try {
+        const deletedLog = await Logs.findByIdAndDelete(req.params.id);
+        
+        if (!deletedLog) {
+          return res.status(404).send('Log not found');
+        }
+        
+        res.redirect('/logs')
     }catch(error){
         console.error(error)
         res.status(404).send('Server Error')
     }
-    res.redirect('/logs')
+    
     
 }
