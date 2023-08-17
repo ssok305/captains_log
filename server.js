@@ -15,22 +15,15 @@ app.set('view engine', 'jsx')
 app.engine('jsx', jsxEngine())
 
 
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended: true}))
+const logRoutes = require('./routes/logsRoute')
+
+app.use('/', logRoutes)
 
 app.get('/', (req,res)=>{
     res.render('new');
-})
-
-app.post('/logs', (req,res)=>{  
-    if (req.body.shipIsBroken === 'on') {
-        req.body.shipIsBroken = true
-    } else {
-        req.body.shipIsBroken = false
-    }
-    res.send(req.body)
- 
 })
 
 app.listen(PORT, () => {
