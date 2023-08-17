@@ -4,7 +4,7 @@ const router = express.Router();
 
 const logsController = require('../controllers/logsController');
 
-// router.get('/', logsController.index)
+router.get('/logs', logsController.index)
 
 // "new" route
 router.get('/new', logsController.new)
