@@ -4,7 +4,6 @@ const Logs = require('../models/logs')
 module.exports.index = async (req,res) => {
     try{
         const logs = await Logs.find()
-        console.log(logs) 
         res.render('Index', {logs} )
        
     }catch(error){
@@ -40,5 +39,16 @@ module.exports.create = async (req,res) => {
 module.exports.show = async (req,res) => {
     const log = await Logs.findById(req.params.id)
     res.render('Show', {log})
+    
+}
+
+module.exports.delete = async(req,res) =>{
+    try{
+        await Logs.findByIdAndDelete(req.params.id)
+    }catch(error){
+        console.error(error)
+        res.status(404).send('Server Error')
+    }
+    res.redirect('/logs')
     
 }

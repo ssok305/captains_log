@@ -18,4 +18,6 @@ router.post('/logs', logsController.create)
 // "show" route
 router.get('/logs/:id', logsController.show)
 
+router.delete('/logs', logsController.delete)
+
 module.exports = router
