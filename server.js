@@ -18,6 +18,8 @@ app.engine('jsx', jsxEngine())
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended: true}))
+
+
 const logRoutes = require('./routes/logsRoute')
 
 app.use('/', logRoutes)

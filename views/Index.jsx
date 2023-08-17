@@ -8,9 +8,8 @@ function Index({ logs }) {
         {logs.map((log) => (
           <li key={log._id}>
             {log.title}
-            <form action={`/logs/${log._id}`} method="POST">
-              <input type="hidden" name="_method" value="DELETE" />
-              <input type="submit" value="Delete" />
+            <form action={`/logs/${log._id}?_method=DELETE`} method="POST">
+              <button>Delete</button>
             </form>
           </li>
         ))}
