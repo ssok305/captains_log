@@ -3,18 +3,20 @@ import React from "react";
 function Index({ logs }) {
   return (
     <div>
-      <h1>Logs</h1>
+      <h1>Ship Logs</h1>
       <ul>
         {logs.map((log) => (
           <li key={log._id}>
-            {log.title}
+            <a href={`/logs/${log._id}`}>{log.title}</a>
             <form action={`/logs/${log._id}?_method=DELETE`} method="POST">
-              <button>Delete</button>
+              <button>X</button>
             </form>
           </li>
         ))}
         <br />
-        <a href={"/new"}>Create</a>
+        <a href={"/new"}>
+          <button>Create</button>
+        </a>
       </ul>
     </div>
   );

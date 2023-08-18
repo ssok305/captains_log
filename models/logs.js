@@ -12,5 +12,5 @@ const logsSchema = mongoose.Schema({
     }
 }, { timestamps:true })
 
-const Logs = mongoose.model('Logs',logsSchema);
+const Logs = mongoose.model('Logs', logsSchema);
 module.exports = Logs

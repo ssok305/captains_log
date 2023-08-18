@@ -15,22 +15,17 @@ module.exports.index = async (req,res) => {
 }
 
 module.exports.new = (req, res) => {
-    res.render('New')
+    res.render('new')
 }
 
-module.exports.create = async (req,res) => {
-    if (req.body.shipIsBroken === 'on') {
-        req.body.shipIsBroken = true
-    } else {
-        req.body.shipIsBroken = false
-    }
-    try{
+module.exports.create = async (req, res) => {
+    req.body.shipIsBroken = (req.body.shipIsBroken === 'on') 
+    try {
         await Logs.create(req.body)
-        res.redirect('/logs')
-    }catch(error){
-        console.error(error)
-        res.status(404).send('Server Error')
+    } catch(err) {
+        console.log(err.message)
     }
+    res.redirect('/logs')
 }
 
 module.exports.show = async (req,res) => {
@@ -40,13 +35,9 @@ module.exports.show = async (req,res) => {
 
 module.exports.delete = async (req, res) => {
     try {
-      const deletedLog = await Logs.findByIdAndDelete(req.params.id);
-      if (!deletedLog) {
-        return res.status(404).send('Log not found');
-      }
-      res.redirect('/logs'); // Redirect to index page after deletion
-    } catch (error) {
-      console.error(error);
-      res.status(500).send('Server Error');
+        await Logs.findByIdAndDelete(req.params.id)
+    } catch(err) {
+        console.log(err.message)
     }
-  };
+    res.redirect('/logs')
+}
