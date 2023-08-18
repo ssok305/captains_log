@@ -7,8 +7,8 @@ module.exports.index = async (req,res) => {
         res.render('Index', {logs} )
        
     }catch(error){
-        console.error(error)
-        res.status(404).send('Server Error')
+        console.log(error.message)
+        
     }
     
        
@@ -41,3 +41,14 @@ module.exports.delete = async (req, res) => {
     }
     res.redirect('/logs')
 }
+
+module.exports.edit = async (req,res) => {
+    try {
+        const log = await Logs.findById(req.params.id)
+        res.render('Edit', {log})
+    }catch(error){
+        console.log(error.message)
+        res.send('Broken page')
+    }
+}
+

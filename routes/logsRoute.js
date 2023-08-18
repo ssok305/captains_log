@@ -14,10 +14,11 @@ router.get('/new', logsController.new)
 
 // "create" route
 router.post('/logs', logsController.create)
-
 // "show" route
 router.get('/logs/:id', logsController.show)
-
+// "delete" route
 router.delete('/logs/:id', logsController.delete)
+// "edit" route
+router.get('/logs/:id/edit', logsController.edit)
 
 module.exports = router

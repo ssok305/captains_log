@@ -1,5 +1,6 @@
 const express = require('express');
 
+const Logs = require('./models/logs')
 require('dotenv').config()
 
 const mongoConfig = require('./config');
@@ -24,9 +25,6 @@ const logRoutes = require('./routes/logsRoute')
 
 app.use('/', logRoutes)
 
-app.get('/', (req,res)=>{
-    res.render('new');
-})
 
 app.listen(PORT, () => {
     console.log('Listening on port: ' + PORT)
