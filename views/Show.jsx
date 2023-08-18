@@ -9,7 +9,9 @@ function Show({ log }) {
       <br />
       <p>{log.shipIsBroken ? "Ship Broken" : "Ship NOT Broken"}</p>
       <br />
-      <a href="/logs">Back</a>
+      <a href="/logs">
+        <button>Back</button>
+      </a>
     </div>
   );
 }

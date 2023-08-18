@@ -6,19 +6,23 @@ const logsController = require('../controllers/logsController');
 
 router.get('/logs', logsController.index)
 
+// "show" route
+router.get('/logs/:id', logsController.show)
+
 // "new" route
 router.get('/new', logsController.new)
 
-// "update" route
-// router.put('/:id', logsController.update)
-
 // "create" route
 router.post('/logs', logsController.create)
-// "show" route
-router.get('/logs/:id', logsController.show)
-// "delete" route
-router.delete('/logs/:id', logsController.delete)
+
 // "edit" route
 router.get('/logs/:id/edit', logsController.edit)
+
+// "update" route
+router.patch('/logs/:id', logsController.update)
+
+// "delete" route
+router.delete('/logs/:id', logsController.delete)
+
 
 module.exports = router
